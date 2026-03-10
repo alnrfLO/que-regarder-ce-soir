@@ -12,7 +12,7 @@ function Filters({ onSearch, onRandom }) {
     useEffect(() => {
         const fetchGenres = async () => {
             try {
-                const response = await fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=65aa18a7bf9a1a98ae883bf0e1c74d06&language=fr-FR")
+                const response = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR`)
                 const data = await response.json()
                 setGenres(data.genres)
             } catch (error) {

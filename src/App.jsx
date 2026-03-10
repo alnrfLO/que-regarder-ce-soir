@@ -16,14 +16,14 @@ function App() {
   const fetchRandomMovie = () => {
     const pageAleatoire = Math.floor(Math.random() * 500) + 1
     const indexAleatoire = Math.floor(Math.random() * 20)
-    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=65aa18a7bf9a1a98ae883bf0e1c74d06&language=fr-FR&page=${pageAleatoire}`)
+    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR&page=${pageAleatoire}`)
         .then(response => response.json())
         .then(data => setFilm(data.results[indexAleatoire]))
         .catch(error => console.error("Erreur :", error))
   }
   // Récupération d'un film selon les filtres
   const fetchMovie = (genre, annee, note) => {
-    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=65aa18a7bf9a1a98ae883bf0e1c74d06&language=fr-FR&with_genres=${genre}&primary_release_year=${annee}&vote_average.gte=${note}`)
+    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&language=fr-FR&with_genres=${genre}&primary_release_year=${annee}&vote_average.gte=${note}`)
       .then(response => response.json())
       .then(data => setFilm(data.results[0]))
       .catch(error => console.error("Erreur :", error))

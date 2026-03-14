@@ -50,7 +50,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white p-8">
+    <div className="min-h-screen bg-gray-950 text-white p-8 pb-16">
       <div>
         <h1 className="text-4xl font-bold text-center text-red-500 mb-8 tracking-wide">Que regarder ce soir ?</h1>
         <hr className="border-gray-700 mb-8" />

@@ -1,4 +1,4 @@
-function MovieCard({ film , genres}) {
+function MovieCard({ film , genres , onAddToWatchlist }) {
 
     const genreNames = film.genre_ids.map(id => {
         const genre = genres.find(g => g.id === id);
@@ -21,6 +21,7 @@ function MovieCard({ film , genres}) {
                 <p className="text-gray-400">
                     <span className="font-bold">Note :</span> {film.vote_average ? film.vote_average.toFixed(1) : "Non noté"}
                 </p>
+                <button onClick={() => onAddToWatchlist(film)}> Ajouter à ma liste de film</button>
             </div>
         </div>
     )

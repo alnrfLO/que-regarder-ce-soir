@@ -1,11 +1,26 @@
 import { useState, useEffect } from 'react'
 import Filters from './components/Filters'
 import MovieCard from './components/MovieCard'
+import Watchlist from './components/Watchlist'
 
 function App() {
 
   const [film, setFilm] = useState(null)
   const [genres, setGenres] = useState([])
+
+  const [watchlist, setWatchlist] = useState(() => {
+      const saved = localStorage.getItem("watchlist")
+      return saved ? JSON.parse(saved) : []
+  })
+
+  const addToWatchlist = (film) => {
+      const dejaPresent = watchlist.some(f => f.id === film.id)
+      if (!dejaPresent) {
+          const nouvelleWatchlist = [...watchlist, film]
+          setWatchlist(nouvelleWatchlist)
+          localStorage.setItem("watchlist", JSON.stringify(nouvelleWatchlist))
+      }
+  }
 
   // Chargement des genres une seule fois au démarrage
   useEffect(() => {
@@ -34,7 +49,8 @@ function App() {
       <div>
         <h1 className="text-4xl font-bold text-center text-red-500 mb-8 tracking-wide">Que regarder ce soir ?</h1>
         <Filters onSearch={fetchMovie} onRandom={fetchRandomMovie} />
-        {film && <MovieCard film={film} genres={genres} />}
+        {film && <MovieCard film={film} genres={genres} onAddToWatchlist={addToWatchlist} />}
+        <Watchlist watchlist={watchlist} genres={genres} />
       </div>
     </div>
   )

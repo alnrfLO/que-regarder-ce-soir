@@ -5,7 +5,7 @@ function MovieCard({ film , genres , onAddToWatchlist }) {
         return genre ? genre.name : "Inconnu";
     }).join(", ");
     return (
-        <div className="max-w-sm mx-auto bg-gray-800 rounded-2xl overflow-hidden shadow-2xl mt-8">
+        <div className="fade-in max-w-sm mx-auto bg-gray-800 rounded-2xl overflow-hidden shadow-2xl mt-8">
             <img className="w-full object-cover" src={`https://image.tmdb.org/t/p/w500${film.poster_path}`} alt={film.title} />
             <div className="p-6">
                 <h2 className="text-xl font-bold mb-2">{film.title}</h2>

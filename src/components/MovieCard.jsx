@@ -21,7 +21,7 @@ function MovieCard({ film , genres , onAddToWatchlist }) {
                 <p className="text-gray-400">
                     <span className="font-bold">Note :</span> {film.vote_average ? film.vote_average.toFixed(1) : "Non noté"}
                 </p>
-                <button onClick={() => onAddToWatchlist(film)}> Ajouter à ma liste de film</button>
+                <button onClick={() => onAddToWatchlist(film)}className="mt-4 w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 cursor-pointer"> Ajouter à ma liste</button>
             </div>
         </div>
     )

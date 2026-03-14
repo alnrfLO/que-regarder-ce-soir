@@ -21,6 +21,11 @@ function App() {
           localStorage.setItem("watchlist", JSON.stringify(nouvelleWatchlist))
       }
   }
+  const removeFromWatchlist = (filmId) => {
+    const nouvelleWatchlist = watchlist.filter(f => f.id !== filmId)
+    setWatchlist(nouvelleWatchlist)
+    localStorage.setItem("watchlist", JSON.stringify(nouvelleWatchlist))
+  }
 
   // Chargement des genres une seule fois au démarrage
   useEffect(() => {
@@ -48,9 +53,11 @@ function App() {
     <div className="min-h-screen bg-gray-950 text-white p-8">
       <div>
         <h1 className="text-4xl font-bold text-center text-red-500 mb-8 tracking-wide">Que regarder ce soir ?</h1>
+        <hr className="border-gray-700 mb-8" />
         <Filters onSearch={fetchMovie} onRandom={fetchRandomMovie} />
         {film && <MovieCard film={film} genres={genres} onAddToWatchlist={addToWatchlist} />}
-        <Watchlist watchlist={watchlist} genres={genres} />
+        <hr className="border-gray-700 my-12" />
+        <Watchlist watchlist={watchlist} genres={genres} onRemove={removeFromWatchlist} />
       </div>
     </div>
   )

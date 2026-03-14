@@ -1,20 +1,69 @@
-<<<<<<< HEAD
-# React + Vite
+# 🎬 Que regarder ce soir ?
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Une application web pour trouver facilement un film à regarder grâce aux données de l'API TMDB.
 
-Currently, two official plugins are available:
+🔗 **Demo en ligne** : [que-regarder-ce-soir.vercel.app](https://que-regarder-ce-soir.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Fonctionnalités
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🔍 **Recherche par filtres** — genre, année de sortie, note minimale
+- 🎲 **Mode aléatoire** — un film surprenant en un clic
+- 😂😱😢🚀❤️💥 **Suggestions par humeur** — trouve un film selon ton état d'esprit
+- ❤️ **Watchlist** — sauvegarde et retire des films de ta liste personnelle
+- 🎞️ **Affichage complet** — affiche, titre, résumé, genre, année, note
+- ⚡ **Animations** — fade in et spinner de chargement
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# que-regarder-ce-soir
->>>>>>> 02ca45f13243e54083bf9493ed1105d4da47b10a
+## 🛠️ Technologies utilisées
+
+- [React](https://react.dev/) + [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TMDB API](https://www.themoviedb.org/documentation/api)
+- [Vercel](https://vercel.com/) pour le déploiement
+
+---
+
+## 🚀 Installation locale
+```bash
+git clone https://github.com/alnrfLO/que-regarder-ce-soir.git
+cd que-regarder-ce-soir
+npm install
+```
+
+Crée un fichier `.env` à la racine :
+```
+VITE_API_KEY=ta_clé_tmdb
+```
+
+Lance le projet :
+```bash
+npm run dev
+```
+
+---
+
+## 📁 Structure du projet
+```
+src/
+├── components/
+│   ├── Filters.jsx       # Filtres genre, année, note
+│   ├── MovieCard.jsx     # Carte d'affichage d'un film
+│   ├── MoodSelector.jsx  # Suggestions par humeur
+│   └── Watchlist.jsx     # Liste des films sauvegardés
+├── App.jsx               # Composant principal
+└── main.jsx              # Point d'entrée
+```
+
+---
+
+## 🔑 API
+
+Ce projet utilise l'API de [The Movie Database (TMDB)](https://www.themoviedb.org/).  
+Pour obtenir une clé API gratuite, crée un compte sur TMDB et demande une clé dans les paramètres.
+
+---
+
+*Projet réalisé dans le cadre d'un apprentissage de React.*
